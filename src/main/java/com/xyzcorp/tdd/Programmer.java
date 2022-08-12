@@ -1,6 +1,7 @@
 package com.xyzcorp.tdd;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.function.Supplier;
 
 public class Programmer {
@@ -20,6 +21,10 @@ public class Programmer {
 
     public Object getFullName() {
         return firstName + " " + lastName;
+    }
+
+    public int getAge() {
+        return (int) ChronoUnit.YEARS.between(birthDate, localDateSupplier.get());
     }
 
 }
